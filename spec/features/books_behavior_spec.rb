@@ -4,7 +4,7 @@ describe 'interaction for BooksController' do
   include HotGlue::ControllerHelper
   include ActionView::RecordIdentifier
 
-    # HOTGLUE-SAVESTART
+  # HOTGLUE-SAVESTART
   # HOTGLUE-END
   
   let!(:author1) {create(:author)}
