@@ -1,0 +1,21 @@
+<div class='col-sm-2 author--first_name'> <%= author.first_name %></div>
+<div class='col-sm-2 author--last_name'> <%= author.last_name %></div>
+
+
+
+
+
+
+<div class=" scaffold-line-buttons col-md-2" >
+  
+
+  
+    <%= form_with url: author_path(author), html: {data: {'turbo-confirm': "Are you sure you want to delete #{ author.name }?"}, style: "display: inline-block;"}, method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe,  class: "delete-author-button btn btn-primary btn-sm" %>
+    <% end %>
+  
+
+  
+  <%= link_to "Edit ".html_safe, edit_author_path(author), disable_with: "Loading...", class: "edit-author-button btn btn-primary btn-sm" %>
+  
+</div>

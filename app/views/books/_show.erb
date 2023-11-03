@@ -1,0 +1,21 @@
+<div class='col-sm-2 book--author_id'> <%= book.author.try(:name) || '<span class="content ">MISSING</span>'.html_safe %></div>
+<div class='col-sm-2 book--title'> <%= book.title %></div>
+
+
+
+
+
+
+<div class=" scaffold-line-buttons col-md-2" >
+  
+
+  
+    <%= form_with url: book_path(book), html: {data: {'turbo-confirm': "Are you sure you want to delete #{ book.name }?"}, style: "display: inline-block;"}, method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe,  class: "delete-book-button btn btn-primary btn-sm" %>
+    <% end %>
+  
+
+  
+  <%= link_to "Edit ".html_safe, edit_book_path(book), disable_with: "Loading...", class: "edit-book-button btn btn-primary btn-sm" %>
+  
+</div>

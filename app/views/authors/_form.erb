@@ -1,0 +1,27 @@
+<div class="row">
+  <div class='col-md-2 cell--author--first_name' >  
+    <span class='<%= "alert alert-danger" if author.errors.details.keys.include?(:first_name) %>'  style="display: inherit;"  >
+       <br />
+        <%= f.text_field :first_name, value: author.first_name, autocomplete: 'off', size: 40, class: 'form-control', type: '' %>
+       
+      
+      <label class='text-muted small form-text' for=''>First name</label>
+    </span>
+    <br />
+  </div>
+  <div class='col-md-2 cell--author--last_name' >  
+    <span class='<%= "alert alert-danger" if author.errors.details.keys.include?(:last_name) %>'  style="display: inherit;"  >
+       <br />
+        <%= f.text_field :last_name, value: author.last_name, autocomplete: 'off', size: 40, class: 'form-control', type: '' %>
+       
+      
+      <label class='text-muted small form-text' for=''>Last name</label>
+    </span>
+    <br />
+  </div>
+
+  <div class="col-md-2">
+    <%= link_to "Cancel", authors_path,  {class: "btn btn-secondary"} %>
+    <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+  </div>
+</div>

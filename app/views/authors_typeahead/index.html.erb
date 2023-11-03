@@ -1,0 +1,13 @@
+
+<div class="typeahead-results__authors"
+     data-controller="typeahead-results"
+     data-typeahead-results-typeahead-outlet=".typeahead--book--author_id"
+     data-typeahead-results-current-class="search__result--current" >
+  <ul class="search__results" data-typeahead-results-target="result">
+    <% if @authors.any? %>
+      <%= render partial: "author", collection: @authors %>
+    <% else %>
+      <li class="search__result search__result--empty">No results</li>
+    <% end %>
+  </ul>
+</div>

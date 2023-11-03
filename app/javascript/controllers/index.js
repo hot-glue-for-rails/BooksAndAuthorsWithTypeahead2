@@ -6,3 +6,9 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import TypeaheadController from "./typeahead_controller"
+application.register("typeahead", TypeaheadController)
+
+import TypeaheadResultsController from "./typeahead_results_controller"
+application.register("typeahead-results", TypeaheadResultsController)

@@ -1,0 +1,39 @@
+<%= turbo_frame_tag "__books-list"   do %>
+  <div class="container ">
+    
+      <h4>
+        BOOKS
+      </h4>
+    
+
+    <%= render partial: "books/new_button", locals: {} %><br />
+
+    
+      
+        <div class="row ">
+          <div class='col-sm-2 heading--book--author_id' >Author</div>
+<div class='col-sm-2 heading--book--title' >Title</div>
+
+          
+
+          <div class=' scaffold-col-heading scaffold-col-heading-buttons col-sm-2' >
+          </div>
+        </div>
+      
+
+      <% if books.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% books.each do |book| %>
+        <%= render partial: 'books/line', locals: {book: book}
+            .merge(defined?(nested_for) ? {nested_for: nested_for} : {})
+      
+        %>
+      <% end %>
+      
+    <% if books.respond_to?(:total_pages) %><%= paginate(books) %> <% end %>
+  
+  </div>
+<% end %>

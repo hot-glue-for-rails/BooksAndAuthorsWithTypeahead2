@@ -1,0 +1,36 @@
+<div class="row">
+  <div class='col-md-2 cell--book--author_id' >  
+    <span class='<%= "alert alert-danger" if book.errors.details.keys.include?(:author) %>'  style="display: inherit;"  >
+       <br />
+      <div class='typeahead typeahead--book--author_id'
+                 data-controller='typeahead'
+                 data-typeahead-url-value='<%= authors_typeahead_index_url %>'
+                 data-typeahead-typeahead-results-outlet='#search-results'>
+                 <%= text_field_tag :authors_query, '', placeholder: 'Search authors', class: 'search__input',
+                                   data: { action: 'keyup->typeahead#fetchResults keydown->typeahead#navigateResults', typeahead_target: 'query' },
+                                   autofocus: true,
+                                   autocomplete: 'off',
+                                   value: book.try(:author).try(:name) %>
+                 <%= f.hidden_field :author_id, value: book.try(:author).try(:id), 'data-typeahead-target': 'hiddenFormValue' %>
+                 <div data-typeahead-target='results'></div>
+               </div>
+      <label class='text-muted small form-text' for=''>Author</label>
+    </span>
+    <br />
+  </div>
+  <div class='col-md-2 cell--book--title' >  
+    <span class='<%= "alert alert-danger" if book.errors.details.keys.include?(:title) %>'  style="display: inherit;"  >
+       <br />
+        <%= f.text_field :title, value: book.title, autocomplete: 'off', size: 40, class: 'form-control', type: '' %>
+       
+      
+      <label class='text-muted small form-text' for=''>Title</label>
+    </span>
+    <br />
+  </div>
+
+  <div class="col-md-2">
+    <%= link_to "Cancel", books_path,  {class: "btn btn-secondary"} %>
+    <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+  </div>
+</div>
